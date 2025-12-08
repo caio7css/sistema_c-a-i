@@ -159,13 +159,13 @@ if st.button('🏥Salvar dados'):
                 Derived_map
             ]).reshape(1, -1)
 
-            # Normaliza todos de uma vez
+ 
             normalized_values = normalize.transform(feature_values)[0]
 
-            # Monta o dicionário pronto para o modelo
+
             dados_modelo = dict(zip(feature_names, normalized_values))
 
-            # Usa o modelo correspondente ao gênero
+  
             if Gender == 'Masculino':
                 previsao_valor = previsor_homem.predict(pd.DataFrame([dados_modelo]))[0]
             else:
@@ -181,6 +181,6 @@ if st.button('🏥Salvar dados'):
             st.error(f'Erro durante a previsão do modelo: {e}')
 
 
-if st.session_state['dados_gerados']:
+if st.session_state['dados_gerados']: 
     if st.button('Verificar condição do paciente'):
         st.switch_page("pages/pagina_estado_paciente.py")
